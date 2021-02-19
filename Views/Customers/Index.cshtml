@@ -3,6 +3,29 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Customers</h2>
+@if (true) { 
+    @*{
+            <p>We Don't Have Customers!</p>
+        }
 
-<h2>@Model.Name</h2>
+        else*@
 
+    <table id="customers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        @*foreach (var customer in Model)
+        {
+            }*@
+            <tbody>
+                <tr>
+                    <td>@Model.Name</td>
+                </tr>
+            </tbody>
+        
+    </table>
+
+}
