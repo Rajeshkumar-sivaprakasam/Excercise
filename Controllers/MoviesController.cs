@@ -12,10 +12,23 @@ namespace Excercise.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Vivegam" };
+            var movie = GetMovies();
 
             return View(movie);
         }
+        
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Shrek" },
+                new Movie { Id = 2, Name = "Wall-e" }
+            };
+        }
+
+
+
+
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };

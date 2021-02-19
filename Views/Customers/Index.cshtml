@@ -1,31 +1,32 @@
-﻿@model Excercise.Models.Customer
+﻿
+@model IEnumerable<Excercise.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Customers</h2>
-@if (true) { 
-    @*{
-            <p>We Don't Have Customers!</p>
-        }
 
-        else*@
 
-    <table id="customers" class="table table-bordered table-hover">
+@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Customer</th>
             </tr>
         </thead>
-        @*foreach (var customer in Model)
-        {
-            }*@
-            <tbody>
+        <tbody>
+            @foreach (var customer in Model)
+            {
                 <tr>
-                    <td>@Model.Name</td>
-                </tr>
-            </tbody>
-        
-    </table>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
 
+                </tr>
+            }
+        </tbody>
+    </table>
 }
